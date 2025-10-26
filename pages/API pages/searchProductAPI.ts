@@ -17,4 +17,12 @@ export class SearchProductAPI {
     );
     return response;
   }
+
+   // API 6: بدون باراميتر
+  async POSTSearchProductWithoutParam(): Promise<APIResponse> {
+    const response= await this.request.post(`${this.baseUrl}/searchProduct`, {
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+    });
+    return response;
+  }
 }
