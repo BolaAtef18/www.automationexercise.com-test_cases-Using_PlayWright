@@ -3,7 +3,7 @@ import { VerifyLoginAPI } from '../../pages/API pages/verifyLoginAPI';
 
 test.describe('API 10: POST To Verify Login with invalid details', () => {
 
-  test('should return 400 Bad Request', async ({ request }) => {
+  test('should return 404 User not found!', async ({ request }) => {
 
     const api = new VerifyLoginAPI(request);
     const email = 'tester@tester.com'

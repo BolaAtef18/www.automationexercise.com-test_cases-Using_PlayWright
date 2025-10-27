@@ -1,15 +1,18 @@
 import { test, expect, APIResponse } from '@playwright/test';
 import { CreateAccountAPI } from '../../pages/API pages/createAccountAPI';
+import { DeleteAccountAPI } from '../../pages/API pages/deleteAccountAPI';
 
-test.describe('API 11: POST To Create/Register User Account', () => {
 
-  test('should return 201 User created!', async ({ request }) => {
+test.describe('API 12: DELETE METHOD To Delete User Account', () => {
 
-    const random = Date.now();
+  test('should return 200 Account deleted!', async ({ request }) => {
 
-    const api = new CreateAccountAPI(request);
+    //const random = Date.now();
+
+    const Deleteapi = new DeleteAccountAPI(request);
+    const Createapi = new CreateAccountAPI(request);
     const name= 'Bola Atef'
-    const email = `tester${random}@tester.com`
+    const email = `tester258@tester.com`
     const password = '123456000'
     const title = "Mr"
     const birth_day= "10"
@@ -27,21 +30,23 @@ test.describe('API 11: POST To Create/Register User Account', () => {
     const mobile_number= "+11234567890"
 
 
-    const response:APIResponse = await api.postToCreate_Register(name,email,password,
+    const createresponse:APIResponse = await Createapi.postToCreate_Register(name,email,password,
         title,birth_day,birth_month,birth_year,firstname,lastname,
         company,address1,address2,country,zipcode,state,city,mobile_number);
 
+    const deleteresponse:APIResponse = await Deleteapi.DeleteUserAccount(email,password);
+
     //parseing of reponse to json
-    const body = await response.json();
+    const body = await deleteresponse.json();
 
     //print of body
     console.log(body);
-    expect(body.responseCode).toBe(201);
-    expect(body.message).toBe("User created!");
+    expect(body.responseCode).toBe(200);
+    expect(body.message).toBe("Account deleted!");
 
 
 
-    console.log("API 11: POST To Create/Register User Account Done Successfully");
+    console.log("API 12: DELETE METHOD To Delete User Account Done Successfully");
 
   });
 

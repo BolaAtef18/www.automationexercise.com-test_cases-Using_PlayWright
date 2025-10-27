@@ -1,6 +1,6 @@
 import { APIRequestContext, APIResponse } from '@playwright/test';
 
-export class BrandsListAPI {
+export class getUserDetailByEmailAPI {
   private readonly request: APIRequestContext;
   private readonly baseUrl = 'https://automationexercise.com/api';
 
@@ -8,10 +8,12 @@ export class BrandsListAPI {
     this.request = request;
   }
 
-  // 🟢 GET: Get All Products
-  async postToCreate_Register(): Promise<APIResponse> {
-    const response = await this.request.post(`${this.baseUrl}/createAccount`);
+  async GetUserDetailByEmail(email: string): Promise<APIResponse> {
+    const response = await this.request.get(`${this.baseUrl}/getUserDetailByEmail`,
+    {
+        params:{email}
+    }
+    );
     return response;
   }
-
 }
