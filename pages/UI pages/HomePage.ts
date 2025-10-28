@@ -9,21 +9,14 @@ export class HomePage {
 
   private signupLoginLink = '//*[@id="header"]/div/div/div/div[2]/div/ul/li[4]/a';
   private HomePageLogo ='//*[@id="header"]/div/div/div/div[1]/div/a/img';
-  private LoggedIn_Username = '//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[10]/a';
   private Delete_Button ='//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[5]/a';
-
-
-
+ 
   async clickSignupLogin(){
-    await this.page.locator(this.signupLoginLink).click();
+    await this.page.click(this.signupLoginLink);
   }
 
   async verifyHomePageVisible() {
     await this.page.waitForSelector(this.HomePageLogo); 
-  }
-
-  async isLogged_in_as_usernameVisible(){
-    await this.page.waitForSelector(this.LoggedIn_Username);
   }
 
   async delete_button(){

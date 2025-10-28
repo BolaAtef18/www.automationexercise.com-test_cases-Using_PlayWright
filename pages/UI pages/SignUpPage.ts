@@ -13,9 +13,6 @@ export class SignUpPage {
   }
 
   private NewUserSignUp ='//*[@id="form"]/div/div/div[3]/div/h2';
-  private Name ='[data-qa="signup-name"]';
-  private Email ='//*[@id="form"]/div/div/div[3]/div/form/input[3]';
-  private Signeupbutton ='//*[@id="form"]/div/div/div[3]/div/form/button';
 
   private titleMr = '[id="id_gender1"]';
   private password = '[data-qa="password"]';
@@ -36,15 +33,6 @@ export class SignUpPage {
 
   private createAccountButton= '//*[@id="form"]/div/div/div/div/form/button';
 
-   async verifyNewUserSignUpVisible() {
-    await this.page.waitForSelector(this.NewUserSignUp);
-  }
-
-  async signeup(name: string, email: string) {
-    await this.page.fill(this.Name, name);
-    await this.page.fill(this.Email, email);
-    await this.page.click(this.Signeupbutton);
-  }
 
   async fillAccountInfo(){
     await this.page.click(this.titleMr);

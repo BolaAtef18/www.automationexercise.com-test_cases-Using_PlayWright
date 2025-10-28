@@ -3,6 +3,8 @@ import { HomePage } from '../../pages/UI pages/HomePage';
 import { SignUpPage } from '../../pages/UI pages/SignUpPage';
 import { AccountCreatedPage } from '../../pages/UI pages/AccountCreatedPage';
 import { DeleteButtonPage } from '../../pages/UI pages/DeleteButtonPage';
+import { LogInPage } from '../../pages/UI pages/LogInPage';
+import { LoggedInPage } from '../../pages/UI pages/LoggedInPage';
 
 
 
@@ -12,6 +14,8 @@ test('Register User', async ({ page }) => {
       const signUpPage =new SignUpPage(page);
       const accountcreatedPage = new AccountCreatedPage(page);
       const deletebuttonPage = new DeleteButtonPage(page);
+      const loginpage = new LogInPage(page);
+      const loggedinpage = new LoggedInPage(page);
 
 
       await page.setViewportSize({ width: 1520, height: 820 });
@@ -22,9 +26,9 @@ test('Register User', async ({ page }) => {
       await page.waitForTimeout(1000);
       await homePage.clickSignupLogin();
       await page.waitForTimeout(1000);
-      await signUpPage.verifyNewUserSignUpVisible();
+      await loginpage.verifyNewUserSignUpVisible();
       await page.waitForTimeout(1000);
-      await signUpPage.signeup('Bola Atef','bolaAteftest@test.com');
+      await loginpage.signeup('Bola Atef','bolaAteftest@test.com');
       await page.waitForTimeout(1000);
       await signUpPage.fillAccountInfo();
       await page.waitForTimeout(1000);
@@ -34,7 +38,7 @@ test('Register User', async ({ page }) => {
       await page.waitForTimeout(1000);
       await accountcreatedPage.pressoncontiuneButton();
       await page.waitForTimeout(1000);
-      await homePage.isLogged_in_as_usernameVisible();
+      await loggedinpage.isLogged_in_as_usernameVisible();
       await page.waitForTimeout(1000);
       await homePage.delete_button();
       await page.waitForTimeout(1000);
