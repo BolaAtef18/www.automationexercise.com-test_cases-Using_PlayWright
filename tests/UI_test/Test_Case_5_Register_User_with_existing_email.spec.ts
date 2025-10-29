@@ -9,7 +9,7 @@ import { LoggedInPage } from '../../pages/UI pages/LoggedInPage';
 
 
 
-test('Register User', async ({ page }) => {
+test('Test Case 5: Register User with existing email', async ({ page }) => {
       const homePage = new HomePage(page);
       const signUpPage =new SignUpPage(page);
       const accountcreatedPage = new AccountCreatedPage(page);
@@ -28,23 +28,11 @@ test('Register User', async ({ page }) => {
       await page.waitForTimeout(1000);
       await loginpage.verifyNewUserSignUpVisible();
       await page.waitForTimeout(1000);
-      await loginpage.signeup('Bola Atef','bolaAteftest123@test.com');
+      await loginpage.signeup('Bola Atef','bolaAteftest@test.com');
       await page.waitForTimeout(1000);
-      await signUpPage.fillAccountInfo();
+      await loginpage.isEmail_Address_already_exist_visiable();
       await page.waitForTimeout(1000);
-      await signUpPage.clickCreateAccount();
-      await page.waitForTimeout(1000);
-      await accountcreatedPage.isAccountCreatedVisible();
-      await page.waitForTimeout(1000);
-      await accountcreatedPage.pressoncontiuneButton();
-      await page.waitForTimeout(1000);
-      await loggedinpage.isLogged_in_as_usernameVisible();
-      await page.waitForTimeout(1000);
-      await homePage.delete_button();
-      await page.waitForTimeout(1000);
-      await deletebuttonPage.isAccount_DeletedVisible();
-      await page.waitForTimeout(1000);
-      await deletebuttonPage.contine_button();
-      console.log("Test Case 1: Register User Done Successfully");
+
+      console.log("Test Case 5: Register User with existing email Done Successfully");
 
 })
