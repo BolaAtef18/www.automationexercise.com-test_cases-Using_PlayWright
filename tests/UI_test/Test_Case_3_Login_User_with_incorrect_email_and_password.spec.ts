@@ -29,7 +29,7 @@ test('Test Case 3: Login User with incorrect email and password', async ({ page 
       await page.waitForTimeout(1000);
       await loginpage.login('bolaAteftest123@test.com','123456');
       await page.waitForTimeout(1000);
-      await loginpage.isYour_email_or_password_is_incorrect();
+      await loginpage.isYour_email_or_password_is_incorrect_visiable();
       await page.waitForTimeout(1000);
 
       
