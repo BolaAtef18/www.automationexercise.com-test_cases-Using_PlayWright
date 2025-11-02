@@ -6,11 +6,13 @@ import { DeleteButtonPage } from '../../pages/UI pages/DeleteButtonPage';
 import { LogInPage } from '../../pages/UI pages/LogInPage';
 import { LoggedInPage } from '../../pages/UI pages/LoggedInPage';
 import { ContactUsPage } from '../../pages/UI pages/ContactUSPage';
+import { TestCasePage } from '../../pages/UI pages/TestCasePage';
+import { ProductsPage } from '../../pages/UI pages/ProductsPage';
+import { ProductDetails } from '../../pages/UI pages/ProductDetails';
 
 
 
-
-test('Test Case 6: Contact Us Form', async ({ page }) => {
+test('Test Case 7: Verify Test Cases Page', async ({ page }) => {
       const homePage = new HomePage(page);
       const signUpPage =new SignUpPage(page);
       const accountcreatedPage = new AccountCreatedPage(page);
@@ -18,6 +20,9 @@ test('Test Case 6: Contact Us Form', async ({ page }) => {
       const loginpage = new LogInPage(page);
       const loggedinpage = new LoggedInPage(page);
       const conatctuspage = new ContactUsPage(page);
+      const testcasepage = new TestCasePage(page);
+      const productspage = new ProductsPage(page);
+      const productdetails = new ProductDetails(page);
 
 
       await page.setViewportSize({ width: 1520, height: 820 });
@@ -26,26 +31,16 @@ test('Test Case 6: Contact Us Form', async ({ page }) => {
 
       await homePage.verifyHomePageVisible();
       await page.waitForTimeout(1000);
-      await homePage.clickSignupLogin();
-      await page.waitForTimeout(1000);
-      await homePage.pressoncontactusbutton();
-      await page.waitForTimeout(1000);
-      await conatctuspage.isgetintouchVisiable();
-      await page.waitForTimeout(1000);
-      page.on('dialog',async dialog=> {
-            console.log(dialog.message());
-            await dialog.accept();
-      });
-      await page.waitForTimeout(1000);
-      await conatctuspage.enterdata('bola','bola@test.com','test','test');
-      await page.waitForTimeout(1000);
-      await conatctuspage.is_Successe_Message_Visiable();
-      await page.waitForTimeout(1000);
-      await conatctuspage.pressonhomebutton();
-      await page.waitForTimeout(1000);
-      await homePage.verifyHomePageVisible();
-      await page.waitForTimeout(1000);
+      await homePage.pressonproductbutton();
+      await page.waitForTimeout(5000);
+      await productspage.verifyALLProductsPageVisible();
+      await page.waitForTimeout(5000);
+      await productspage.verifyProductsListVisiable();
+      await page.waitForTimeout(5000);
+      await productspage.pressonviewproductbutton(1);
+      await page.waitForTimeout(5000);
+      await productdetails.verifyProductDetailsVisible();
 
-      console.log("Test Case 6: Contact Us Form Done Successfully");
+      console.log("Test Case 8: Verify All Products and product detail page Done Successfully");
 
 })
