@@ -1,4 +1,4 @@
-import { Page } from '@playwright/test';
+import { expect, Page } from '@playwright/test';
 
 export class HomePage {
   readonly page: Page;
@@ -13,6 +13,10 @@ export class HomePage {
   private ContactUs ='//*[@id="header"]/div/div/div/div[2]/div/ul/li[8]/a';
   private TestCasebutton ='//*[@id="header"]/div/div/div/div[2]/div/ul/li[5]';
   private Productsbutton ='//*[@id="header"]/div/div/div/div[2]/div/ul/li[2]/a';
+  private Subscription ='//*[@id="footer"]/div[1]/div/div/div[2]/div/h2';
+  private susbscribe_email ='//*[@id="susbscribe_email"]';
+  private subscribeButton ='//*[@id="subscribe"]';
+  private successMessage ='//*[@id="success-subscribe"]/div';
  
   async clickSignupLogin(){
     await this.page.click(this.signupLoginLink);
@@ -36,5 +40,22 @@ export class HomePage {
 
   async pressonproductbutton(){
     await this.page.click(this.Productsbutton);
+  }
+
+  async scrollToFooter() {
+    await this.page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+  }
+
+  async VerifySUBSCRIPTIONisVisible(){
+    await expect(this.page.locator(this.Subscription)).toBeVisible();
+  }
+
+  async  Enteremailclickbutton(email:string){
+    await this.page.fill(this.susbscribe_email,email);
+    await this.page.click(this.subscribeButton);
+  }
+
+  async successMessageisVisible(){
+    await expect(this.page.locator(this.successMessage)).toBeVisible();
   }
 }
