@@ -93,6 +93,8 @@ export class HomePage {
   // انتظر يظهر
   await addButton.waitFor({ state: 'visible' });
 
+  await this.page.waitForTimeout(500);
+
   // اضغط عليه
   await addButton.click();
 }

@@ -13,7 +13,7 @@ export class PaymentPage {
   private Expiration = '//*[@id="payment-form"]/div[3]/div[2]/input';
   private year = '//*[@id="payment-form"]/div[3]/div[3]/input';
   private payandconfirmeorderbutton = '//*[@id="submit"]';
-  private successmessage = '//*[@id="success_message"]/div';
+  private successmessage = '//div[4]/div/div[@class="alert-success alert"]';
   private continuebutton = '//*[@id="form"]/div/div/div/div/a';
 
   async  Enterpaymentdetails(){
@@ -22,7 +22,7 @@ export class PaymentPage {
     await this.page.fill(this.CVC,'123');
     await this.page.fill(this.Expiration,'06');
     await this.page.fill(this.year,'2030');
-    await this.page.click(this.payandconfirmeorderbutton);
+    await this.page.click(this.payandconfirmeorderbutton);  
 }
 
 async VerifysuccessmessageisVisible(){
