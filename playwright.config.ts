@@ -40,6 +40,7 @@ export default defineConfig({
     actionTimeout: 10000,
     ignoreHTTPSErrors: true,
     navigationTimeout: 90000,  // ✅ زودت Timeout لتجنب فشل page.goto
+
   },
     timeout: 120000,              // ✅ للاختبارات كلها
 

@@ -11,6 +11,7 @@ export class LoggedInPage {
     private LoggedIn_Username = '//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[10]/a';
     private cartbutton = '//*[@id="header"]/div/div/div/div[2]/div/ul/li[3]/a';
 
+
     async pressonlogoutbutton() {
     await this.page.click(this.logoutbutton);
   }

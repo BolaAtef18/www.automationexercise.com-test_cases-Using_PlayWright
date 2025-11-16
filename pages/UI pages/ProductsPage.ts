@@ -17,10 +17,12 @@ export class ProductsPage {
     this.productCards = page.locator('//div[@class="productinfo text-center"]');
   }
 
+
   private viewProducts =(index:number)=>`//a[@href="/product_details/${index}"]`;
   private searchtext = '//*[@id="search_product"]';
   private hoveronproduct = (index:number)=>this.page.locator(`//div[2]/div/a[@data-product-id=${index}]`);
   private viewcart = '//div[2]/div/a[@data-product-id="1"]';
+
 
 
   async verifyALLProductsPageVisible() {

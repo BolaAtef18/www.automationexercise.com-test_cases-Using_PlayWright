@@ -17,12 +17,12 @@ export class HomePage {
   private susbscribe_email ='//*[@id="susbscribe_email"]';
   private subscribeButton ='//*[@id="subscribe"]';
   private successMessage ='//*[@id="success-subscribe"]/div';
+
   private cartbutton='//*[@id="header"]/div/div/div/div[2]/div/ul/li[3]/a';
   private productbutton='//*[@id="header"]/div/div/div/div[2]/div/ul/li[2]/a';
   private viewProduct = '//a[@href="/product_details/1"]';
   private hoveronproduct = '//div/div[2]/div/div/div[2][@class="product-overlay"]';
   private clickonaddtocart = (index:number)=>this.page.locator(`//div/div[2]/div/div/div[2]/div/a[@data-product-id="${index}"]`);
-
  
   async clickSignupLogin(){
     await this.page.click(this.signupLoginLink);
@@ -97,5 +97,4 @@ export class HomePage {
   await addButton.click();
 }
 
-  
 }
