@@ -13,7 +13,7 @@ export class PaymentPage {
   private Expiration = '//*[@id="payment-form"]/div[3]/div[2]/input';
   private year = '//*[@id="payment-form"]/div[3]/div[3]/input';
   private payandconfirmeorderbutton = '//*[@id="submit"]';
-  private successmessage = '//div[4]/div/div[@class="alert-success alert"]';
+  private successmessage = '//*[@id="form"]/div/div/div/h2/b';
   private continuebutton = '//*[@id="form"]/div/div/div/div/a';
 
   async  Enterpaymentdetails(){
