@@ -23,6 +23,9 @@ export class HomePage {
   private viewProduct = '//a[@href="/product_details/1"]';
   private hoveronproduct = '//div/div[2]/div/div/div[2][@class="product-overlay"]';
   private clickonaddtocart = (index:number)=>this.page.locator(`//div/div[2]/div/div/div[2]/div/a[@data-product-id="${index}"]`);
+  private Category ='//section[2]/div[1]/div[1]/div[1]/div/h2';
+  private WomanCategory = '//*[@id="accordian"]/div[1]/div[1]/h4/a';
+  private dress = '//*[@id="Women"]/div/ul/li[1]/a';
  
   async clickSignupLogin(){
     await this.page.click(this.signupLoginLink);
@@ -97,6 +100,18 @@ export class HomePage {
 
   // اضغط عليه
   await addButton.click();
+}
+
+async Verifythatcategoriesisvisible(){
+  await expect(this.page.locator(this.Category)).toBeVisible();
+}
+
+async pressonWomanCategorie(){
+  await this.page.click(this.WomanCategory);
+}
+
+async pressonDress(){
+  await this.page.click(this.dress);
 }
 
 }

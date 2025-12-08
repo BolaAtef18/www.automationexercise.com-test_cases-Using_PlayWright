@@ -18,6 +18,8 @@ export class ViewCartPage {
   private quantityofprod = '//*[@id="product-1"]/td[4]/button';
   private proceedToCheckout = '//*[@id="do_action"]/div[1]/div/div/a';
   private Reg_Loginbutton = '//*[@id="checkoutModal"]/div/div/div[2]/p[2]/a/u';
+  private Xbutton ='//*[@id="product-1"]/td[6]/a/i';
+  private CartIsEmpty ='//*[@id="empty_cart"]/p/b';
   
 
 
@@ -47,6 +49,13 @@ export class ViewCartPage {
 
   async pressonReg_Loginbutton(){
     await this.page.click(this.Reg_Loginbutton);
+  }
+
+  async pressonXButton(){
+    await this.page.click(this.Xbutton);
+  }
+  async Verifythatcartisempty(){
+    await expect(this.page.locator(this.CartIsEmpty)).toBeVisible();
   }
 
 }

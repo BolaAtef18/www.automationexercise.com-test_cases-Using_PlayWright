@@ -10,7 +10,7 @@ export class CheckOutPage {
   private AddressDetails = '//*[@id="cart_items"]/div/div[2]/h2';
   private ReviewYourOrder = '//*[@id="cart_items"]/div/div[4]/h2';
   private Comment ='//*[@id="ordermsg"]/textarea';
-  private placeorderbutton ='//*[@id="cart_items"]/div/div[7]/a';
+  private placeorderbutton ='//*[@id="cart_items"]/div/div[8]/a';
 
 
     async VerifyProductisVisible(){
