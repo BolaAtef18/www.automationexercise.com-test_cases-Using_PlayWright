@@ -11,6 +11,7 @@ export class CartPage {
   private susbscribe_email ='//*[@id="susbscribe_email"]';
   private subscribeButton ='//*[@id="subscribe"]/i';
   private successMessage ='//*[@id="success-subscribe"]/div';
+  private BlueTopProduct = '//*[@id="product-1"]/td[2]/h4/a';
 
 
 
@@ -30,6 +31,14 @@ async scrollToFooter() {
 
    async successMessageisVisible(){
     await expect(this.page.locator(this.successMessage)).toBeVisible();
+  }
+  
+  async Verifythatproductsisvisible(){
+
+    const expected = "Blue Top";
+    const actual = (await this.page.locator(this.BlueTopProduct).textContent())?.trim();
+    expect(actual).toBe(expected);
+
   }
 
 }

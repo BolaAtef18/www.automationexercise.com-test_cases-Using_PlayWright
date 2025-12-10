@@ -20,10 +20,12 @@ export class ProductsPage {
 
   private viewProducts =(index:number)=>`//a[@href="/product_details/${index}"]`;
   private searchtext = '//*[@id="search_product"]';
-  private hoveronproduct = (index:number)=>this.page.locator(`//div[2]/div/a[@data-product-id=${index}]`);
+  private hoveronproduct = (index:number)=>this.page.locator(`//div/div[2]/div/div/div[2]/div/a[@data-product-id=${index}]`);
   private viewcart = '//p/a[@href="/view_cart"]';
   private Brands ='//section[2]/div[1]/div/div[1]/div[1]/div[2]/h2';
   private PoloBrands = '//section[2]/div[1]/div/div[1]/div[1]/div[2]/div/ul/li[1]/a';
+  private SearchFiled = '//*[@id="search_product"]';
+  private Searchbutton = '//*[@id="submit_search"]/i';
 
   async verifyALLProductsPageVisible() {
     await expect(this.ALLProductsTitle).toBeVisible();
@@ -39,6 +41,7 @@ export class ProductsPage {
 
   async searchproduct(search_Product: string){
     await this.page.fill(this.searchtext, search_Product);
+    await this.page.click(this.Searchbutton)
   }
 
   async VerifySEARCHEDPRODUCTSisvisible(){
@@ -56,7 +59,7 @@ export class ProductsPage {
   }
 
   async HoveronProduct(index:number){
-    await this.hoveronproduct(index).hover();
+    await this.hoveronproduct(index).hover({ force: true });
     await this.hoveronproduct(index).click();
   }
 
@@ -71,5 +74,9 @@ export class ProductsPage {
   async pressonPoloBrand(){
     await this.page.click(this.PoloBrands);
   }
+
+ /* async searchproduct(){
+    await this.page.fill(searc)
+  }*/
 
 }
